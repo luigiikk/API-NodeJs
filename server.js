@@ -18,13 +18,22 @@ server.post("/videos", (request, reply) => {
 });
 
 server.get("/videos", () => {
-  const videos = database.list()
+  const videos = database.list();
 
-  return videos
+  return videos;
 });
 
-server.put("/videos/:id", () => {
-  return "video";
+server.put("/videos/:id", (request, reply) => {
+  const videoId = request.params.id;
+  const { title, description, duration } = request.body;
+
+  database.update(videoId, {
+    title,
+    description,
+    duration,
+  });
+
+  return reply.status(204).send(); // 204 => sucesso sem conteudo na resposta
 });
 
 server.delete("/videos/:id", () => {
