@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto"
 
-export class memory {
+export class DatabaseMemory {
   #videos = new Map();
 
   list(){

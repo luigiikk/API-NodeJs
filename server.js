@@ -1,31 +1,20 @@
-// import { createServer } from 'node:http'
-
-// const server = createServer((request, response) => {
-//     response.write('hello world ')
-
-//     return response.end()
-// })
-
-// server.listen(3333)
-
-/// request => traz informações das requisições que estão sendo feitas para dentro da minha API
-/// response => é o objeto que vou utilizar para devolver a resposta para quem está chamando a API
-
 import { fastify } from "fastify";
-import { databasememory } from "./databasememory.js";
+import { DatabaseMemory } from "./databasememory.js";
 
 const server = fastify();
 
-// GET => Busca alguma informação
-// POST => Criação de informação
-// DELETE => Deletar informação
-// PUT => alteração de informação
-// PATCH => alteração específica
+const database = new DatabaseMemory();
 
-// Route Paramenter => parametro que é enviado na rota que pode ser utilizado com id
+server.post("/videos", (request, reply) => {
+  const { title, description, duration } = request.body;
 
-server.post("/videos", () => {
-  return "Hello World";
+  database.create({
+    title,
+    description,
+    duration,
+  });
+
+  return reply.status(201).send(); //201 => algo foi criado
 });
 
 server.get("/videos", () => {
