@@ -1,4 +1,4 @@
-# TESTAR ROTAS DIFERENTES DO GET
+# TESTAR ROTAS 
 
 POST http://localhost:3333/videos
 Content-Type: application/json
@@ -8,3 +8,9 @@ Content-Type: application/json
     "description": "Video #1",
     "duration": 180
 }
+
+###
+
+GET http://localhost:3333/videos
+
+

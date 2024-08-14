@@ -1,14 +1,14 @@
-import { randomUUID } from "node:crypto"
+import { randomUUID } from "node:crypto";
 
 export class DatabaseMemory {
   #videos = new Map();
 
-  list(){
-    return this.#videos.values()
+  list() {
+    return Array.from(this.#videos.values());
   }
 
   create(video) {
-    const videoId = randomUUID() // sempre vai retornar um id unico
+    const videoId = randomUUID(); // sempre vai retornar um id unico
 
     this.#videos.set(videoId, video);
   }
@@ -17,7 +17,7 @@ export class DatabaseMemory {
     this.#videos.set(id, video);
   }
 
-  delete(id){
-    this.#videos.delete(id)
+  delete(id) {
+    this.#videos.delete(id);
   }
 }
