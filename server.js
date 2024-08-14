@@ -1,10 +1,12 @@
 import { createServer } from 'node:http'
 
 const server = createServer((request, response) => {
-    console.log('oie')
+    response.write('hello world ')
 
-    return response.end
+    return response.end()
 })
 
 server.listen(3333)
 
+/// requeste => tras informações das requisições que estão sendo feitas para dentro da minha API
+/// response => é o objeto que vou utilizar para devolver a resposta para quem está chamando a API
