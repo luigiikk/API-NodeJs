@@ -12,6 +12,7 @@
 /// response => é o objeto que vou utilizar para devolver a resposta para quem está chamando a API
 
 import { fastify } from "fastify";
+import { databasememory } from "./databasememory.js";
 
 const server = fastify();
 
