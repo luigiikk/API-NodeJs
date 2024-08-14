@@ -8,5 +8,5 @@ const server = createServer((request, response) => {
 
 server.listen(3333)
 
-/// requeste => tras informações das requisições que estão sendo feitas para dentro da minha API
+/// request => traz informações das requisições que estão sendo feitas para dentro da minha API
 /// response => é o objeto que vou utilizar para devolver a resposta para quem está chamando a API
