@@ -24,3 +24,7 @@ Content-Type: application/json
     "duration": 180
 }
 
+
+###
+
+DELETE http://localhost:3333/videos/1050e8b7-0bef-4c4e-9578-fec90886f50c
