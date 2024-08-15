@@ -17,8 +17,10 @@ server.post("/videos", (request, reply) => {
   return reply.status(201).send(); //201 => algo foi criado
 });
 
-server.get("/videos", () => {
-  const videos = database.list();
+server.get("/videos", (request) => {
+  const search = request.query.search;
+
+  const videos = database.list(search);
 
   return videos;
 });
